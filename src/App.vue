@@ -45,8 +45,10 @@ const Contract = () => {
   const Provide = Provider()
   // signer 用户 => 签名，信息
   const signer = Provide.getSigner()
+  console.log('signer', signer)
   // ethers.Contract 接收（contractAddress, contractABI, signer）
   const Contract = new ethers.Contract(contractAddress, contractABI, signer)
+  console.log('Contract', Contract)
   return Contract
 }
 
@@ -62,7 +64,6 @@ const addCount = async () => {
   // 等待matemask交易完毕
   await tx.wait()
   getCount()
-
 }
 
 getCount()
